@@ -127,23 +127,43 @@ img {
     padding: 100px 0;
     text-align: center;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    /* Context for overlay */
+}
+
+/* Hero Overlay */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    opacity: var(--hero-overlay-opacity, 0);
+    /* Dynamic Opacity */
+    z-index: 1;
+    transition: opacity 0.3s ease;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative;
+    /* Lift above overlay */
+    z-index: 2;
 }
 
 .hero-content h1 {
     font-size: 48px;
-    color: var(--secondary-color);
+    color: var(--hero-text-color);
     margin-bottom: 20px;
     line-height: 1.2;
 }
 
 .hero-content p {
     font-size: 20px;
-    color: var(--text-light);
+    color: var(--hero-text-color);
     margin-bottom: 40px;
 }
 
@@ -368,4 +388,25 @@ img {
         display: none;
         /* Mobile menu would require JS implementation or plugin */
     }
+}
+
+/* Hero Specific Button Styles */
+.hero-section .btn-primary {
+    background-color: var(--accent-color);
+    color: var(--white);
+}
+
+.hero-section .btn-primary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+.hero-section .btn-secondary {
+    border-color: var(--hero-text-color);
+    color: var(--hero-text-color);
+}
+
+.hero-section .btn-secondary:hover {
+    background-color: var(--hero-text-color);
+    color: var(--secondary-color);
 }

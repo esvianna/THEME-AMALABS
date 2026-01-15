@@ -3,22 +3,19 @@
             <div class="footer-widgets">
                 <div class="footer-widget">
                     <h3>Sobre</h3>
-                    <p>AmaLabs oferece serviços de diagnóstico laboratorial com precisão, agilidade e confiança.</p>
+                    <p><?php echo esc_html( get_theme_mod( 'footer_about_text', 'AmaLabs oferece serviços de diagnóstico laboratorial com precisão, agilidade e confiança.' ) ); ?></p>
                 </div>
                 <div class="footer-widget">
                     <h3>Contato</h3>
                     <p>
-                        Email: contato@amalabs.com.br<br>
-                        Tel: (11) 1234-5678<br>
-                        Endereço: Rua Exemplo, 123
+                        Email: <?php echo esc_html( get_theme_mod( 'contact_email', 'contato@amalabs.com.br' ) ); ?><br>
+                        Tel: <?php echo esc_html( get_theme_mod( 'contact_phone', '(11) 1234-5678' ) ); ?><br>
+                        Endereço: <?php echo esc_html( get_theme_mod( 'contact_address', 'Rua Exemplo, 123' ) ); ?>
                     </p>
                 </div>
                 <div class="footer-widget">
                     <h3>Horário</h3>
-                    <p>
-                        Seg - Sex: 07:00 - 18:00<br>
-                        Sáb: 07:00 - 13:00
-                    </p>
+                    <p><?php echo nl2br( esc_html( get_theme_mod( 'footer_hours', "Seg - Sex: 07:00 - 18:00\nSáb: 07:00 - 13:00" ) ) ); ?></p>
                 </div>
             </div><!-- .footer-widgets -->
 
