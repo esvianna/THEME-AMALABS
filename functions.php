@@ -25,6 +25,12 @@ function amalabs_setup() {
         'flex-width'  => true,
         'flex-height' => true,
     ) );
+
+    // WooCommerce Support
+    add_theme_support( 'woocommerce' );
+    add_theme_support( 'wc-product-gallery-zoom' );
+    add_theme_support( 'wc-product-gallery-lightbox' );
+    add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'amalabs_setup' );
 
@@ -37,8 +43,75 @@ function amalabs_scripts() {
 
     // Main Stylesheet
     wp_enqueue_style( 'amalabs-style', get_stylesheet_uri() );
+
+    // AJAX Search Script
+    if ( class_exists( 'WooCommerce' ) ) {
+        wp_enqueue_script( 'amalabs-ajax-search', get_template_directory_uri() . '/js/ajax-search.js', array( 'jquery' ), '1.0', true );
+        wp_localize_script( 'amalabs-ajax-search', 'amalabs_ajax', array(
+            'ajax_url' => admin_url( 'admin-ajax.php' )
+        ) );
+    }
 }
 add_action( 'wp_enqueue_scripts', 'amalabs_scripts' );
+
+/**
+ * AJAX Search Handler
+ */
+function amalabs_ajax_search_callback() {
+    $term = sanitize_text_field( $_POST['term'] );
+
+    $args = array(
+        'post_type'      => 'product',
+        'post_status'    => 'publish',
+        'posts_per_page' => 5,
+        's'              => $term,
+    );
+
+    $query = new WP_Query( $args );
+
+    $products = array();
+
+    if ( $query->have_posts() ) {
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            $product = wc_get_product( get_the_ID() );
+            $image   = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
+
+            $products[] = array(
+                'title' => get_the_title(),
+                'url'   => get_permalink(),
+                'image' => $image ? $image[0] : '',
+                'price' => $product->get_price_html(),
+            );
+        }
+        wp_reset_postdata();
+        wp_send_json_success( $products );
+    } else {
+        wp_send_json_error();
+    }
+
+    wp_die();
+}
+add_action( 'wp_ajax_amalabs_ajax_search', 'amalabs_ajax_search_callback' );
+add_action( 'wp_ajax_nopriv_amalabs_ajax_search', 'amalabs_ajax_search_callback' );
+
+/**
+ * WooCommerce Layout Customizations
+ */
+function amalabs_woocommerce_wrapper_before() {
+    echo '<main id="primary" class="site-main container" style="margin-top: 50px; margin-bottom: 50px;">';
+}
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
+add_action( 'woocommerce_before_main_content', 'amalabs_woocommerce_wrapper_before', 10 );
+
+function amalabs_woocommerce_wrapper_after() {
+    echo '</main>';
+}
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
+add_action( 'woocommerce_after_main_content', 'amalabs_woocommerce_wrapper_after', 10 );
+
+// Remove Sidebar on Product Pages
+remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 
 /**
  * Customizer Settings
@@ -212,6 +285,23 @@ function amalabs_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'service_4_desc', array('default' => 'Realize seus exames no conforto da sua casa ou escritório.') );
     $wp_customize->add_control( 'service_4_desc', array('label' => 'Serviço 4 - Descrição', 'section' => 'services_section', 'type' => 'textarea') );
     
+    // Products Section (WooCommerce)
+    $wp_customize->add_section( 'products_section', array(
+        'title'    => __( 'Produtos (Home)', 'amalabs' ),
+        'priority' => 32,
+    ) );
+
+    $wp_customize->add_setting( 'products_title', array('default' => 'Nossos Produtos') );
+    $wp_customize->add_control( 'products_title', array('label' => 'Título da Seção', 'section' => 'products_section', 'type' => 'text') );
+
+    $wp_customize->add_setting( 'products_count', array('default' => '4') );
+    $wp_customize->add_control( 'products_count', array(
+        'label'       => 'Quantidade de Produtos',
+        'section'     => 'products_section',
+        'type'        => 'number',
+        'input_attrs' => array( 'min' => 2, 'max' => 12, 'step' => 1 ),
+    ) );
+    
     // CTA Section
     $wp_customize->add_section( 'cta_section', array(
         'title'    => __( 'Chamada para Ação (CTA)', 'amalabs' ),
@@ -289,4 +379,30 @@ function amalabs_customize_css() {
     </style>
     <?php
 }
+
 add_action( 'wp_head', 'amalabs_customize_css' );
+
+/**
+ * WooCommerce Cart Fragment (AJAX Update)
+ */
+function amalabs_header_cart_fragment( $fragments ) {
+    ob_start();
+    ?>
+    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="header-cart" title="<?php esc_attr_e( 'Ver carrinho', 'amalabs' ); ?>">
+        <span class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 2h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </span>
+        <?php 
+        $count = WC()->cart->get_cart_contents_count();
+        if ( $count > 0 ) {
+            ?>
+            <span class="cart-count"><?php echo esc_html( $count ); ?></span>
+            <?php
+        }
+        ?>
+    </a>
+    <?php
+    $fragments['a.header-cart'] = ob_get_clean();
+    return $fragments;
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'amalabs_header_cart_fragment' );

@@ -75,6 +75,19 @@ get_header();
         </div>
     </section>
 
+    <!-- Products Section (WooCommerce) -->
+    <?php if ( class_exists( 'WooCommerce' ) ) : ?>
+    <section class="products-section">
+        <div class="container">
+            <h2 class="section-title"><?php echo esc_html( get_theme_mod( 'products_title', 'Nossos Produtos' ) ); ?></h2>
+            <?php 
+            $products_count = get_theme_mod( 'products_count', '4' );
+            echo do_shortcode( '[recent_products limit="' . esc_attr( $products_count ) . '" columns="4"]' ); 
+            ?>
+        </div>
+    </section>
+    <?php endif; ?>
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
