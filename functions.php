@@ -197,6 +197,22 @@ function amalabs_customize_register( $wp_customize ) {
         'priority' => 31,
     ) );
 
+    // Visibility
+    $wp_customize->add_setting( 'features_section_visible', array('default' => true) );
+    $wp_customize->add_control( 'features_section_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'section'     => 'features_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Background Color
+    $wp_customize->add_setting( 'features_bg_gray', array('default' => false) );
+    $wp_customize->add_control( 'features_bg_gray', array(
+        'label'    => __( 'Fundo Cinza (Zebrado)', 'amalabs' ),
+        'section'  => 'features_section',
+        'type'     => 'checkbox',
+    ) );
+
     // Feature 1
     $wp_customize->add_setting( 'feature_1_title', array('default' => 'Alta Precisão') );
     $wp_customize->add_control( 'feature_1_title', array('label' => 'Destaque 1 - Título', 'section' => 'features_section', 'type' => 'text') );
@@ -214,6 +230,125 @@ function amalabs_customize_register( $wp_customize ) {
     $wp_customize->add_control( 'feature_3_title', array('label' => 'Destaque 3 - Título', 'section' => 'features_section', 'type' => 'text') );
     $wp_customize->add_setting( 'feature_3_text', array('default' => 'Equipe treinada para acolher você e sua família com carinho.') );
     $wp_customize->add_control( 'feature_3_text', array('label' => 'Destaque 3 - Texto', 'section' => 'features_section', 'type' => 'textarea') );
+
+    // --- NOVA SEÇÃO: AMALABS (Quem Somos) ---
+    $wp_customize->add_section( 'amalabs_section', array(
+        'title'    => __( 'Amalabs (Quem Somos)', 'amalabs' ),
+        'priority' => 31, 
+    ) );
+
+    // Visibility
+    $wp_customize->add_setting( 'amalabs_section_visible', array('default' => true) );
+    $wp_customize->add_control( 'amalabs_section_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'description' => __( 'ID da seção para menu: #amalabs', 'amalabs' ),
+        'section'     => 'amalabs_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Background Color
+    $wp_customize->add_setting( 'amalabs_bg_gray', array('default' => false) );
+    $wp_customize->add_control( 'amalabs_bg_gray', array(
+        'label'    => __( 'Fundo Cinza (Zebrado)', 'amalabs' ),
+        'section'  => 'amalabs_section',
+        'type'     => 'checkbox',
+    ) );
+
+    // Title
+    $wp_customize->add_setting( 'amalabs_section_title', array('default' => 'Quem somos?') );
+    $wp_customize->add_control( 'amalabs_section_title', array(
+        'label'    => __( 'Título', 'amalabs' ),
+        'section'  => 'amalabs_section',
+        'type'     => 'text',
+    ) );
+
+    // Text
+    $default_amalabs_text = "A AmaLabs é um laboratório especializado em pesquisa, desenvolvimento e validação de soluções infocêuticas, com atuação fundamentada em princípios de informação biológica, comunicação sistêmica e autorregulação fisiológica.\n\nPartimos do entendimento de que os sistemas biológicos respondem não apenas a estímulos químicos, mas também a informações organizacionais capazes de modular funções, ritmos e interações celulares. Dessa forma, a AmaLabs desenvolve soluções que atuam como vetores informacionais, favorecendo processos adaptativos e restaurando coerência funcional ao organismo.\n\nNossa abordagem integra ciência aplicada, modelagem sistêmica e metodologia técnica, com foco em segurança, reprodutibilidade e aplicabilidade clínica.";
+    
+    $wp_customize->add_setting( 'amalabs_section_text', array('default' => $default_amalabs_text) );
+    $wp_customize->add_control( 'amalabs_section_text', array(
+        'label'    => __( 'Texto', 'amalabs' ),
+        'section'  => 'amalabs_section',
+        'type'     => 'textarea',
+    ) );
+
+    // --- NOVA SEÇÃO: SOLUÇÕES INFOCÊUTICAS ---
+    $wp_customize->add_section( 'solucoes_section', array(
+        'title'    => __( 'Soluções Infocêuticas', 'amalabs' ),
+        'priority' => 31, 
+    ) );
+
+    // Visibility
+    $wp_customize->add_setting( 'solucoes_section_visible', array('default' => true) );
+    $wp_customize->add_control( 'solucoes_section_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'description' => __( 'ID da seção para menu: #solucoes', 'amalabs' ),
+        'section'     => 'solucoes_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Background Color
+    $wp_customize->add_setting( 'solucoes_bg_gray', array('default' => true) ); // Default Gray
+    $wp_customize->add_control( 'solucoes_bg_gray', array(
+        'label'    => __( 'Fundo Cinza (Zebrado)', 'amalabs' ),
+        'section'  => 'solucoes_section',
+        'type'     => 'checkbox',
+    ) );
+
+    // Title
+    $wp_customize->add_setting( 'solucoes_section_title', array('default' => 'Soluções Infocêuticas') );
+    $wp_customize->add_control( 'solucoes_section_title', array(
+        'label'    => __( 'Título', 'amalabs' ),
+        'section'  => 'solucoes_section',
+        'type'     => 'text',
+    ) );
+
+    // Text
+    $wp_customize->add_setting( 'solucoes_section_text', array('default' => 'Texto sobre Soluções Infocêuticas...') );
+    $wp_customize->add_control( 'solucoes_section_text', array(
+        'label'    => __( 'Texto', 'amalabs' ),
+        'section'  => 'solucoes_section',
+        'type'     => 'textarea',
+    ) );
+
+    // --- NOVA SEÇÃO: TERCEIRIZE SUA MARCA ---
+    $wp_customize->add_section( 'whitelabel_section', array(
+        'title'    => __( 'Terceirize sua Marca', 'amalabs' ),
+        'priority' => 31, 
+    ) );
+
+    // Visibility
+    $wp_customize->add_setting( 'whitelabel_section_visible', array('default' => true) );
+    $wp_customize->add_control( 'whitelabel_section_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'description' => __( 'ID da seção para menu: #terceirize', 'amalabs' ),
+        'section'     => 'whitelabel_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Background Color
+    $wp_customize->add_setting( 'whitelabel_bg_gray', array('default' => false) );
+    $wp_customize->add_control( 'whitelabel_bg_gray', array(
+        'label'    => __( 'Fundo Cinza (Zebrado)', 'amalabs' ),
+        'section'  => 'whitelabel_section',
+        'type'     => 'checkbox',
+    ) );
+
+    // Title
+    $wp_customize->add_setting( 'whitelabel_section_title', array('default' => 'Terceirize sua Marca') );
+    $wp_customize->add_control( 'whitelabel_section_title', array(
+        'label'    => __( 'Título', 'amalabs' ),
+        'section'  => 'whitelabel_section',
+        'type'     => 'text',
+    ) );
+
+    // Text
+    $wp_customize->add_setting( 'whitelabel_section_text', array('default' => 'Texto sobre Terceirize sua Marca...') );
+    $wp_customize->add_control( 'whitelabel_section_text', array(
+        'label'    => __( 'Texto', 'amalabs' ),
+        'section'  => 'whitelabel_section',
+        'type'     => 'textarea',
+    ) );
 
     // Footer / Contact
     $wp_customize->add_section( 'footer_section', array(
@@ -258,8 +393,87 @@ function amalabs_customize_register( $wp_customize ) {
         'priority' => 31, // After Features
     ) );
 
+    // Visibility
+    $wp_customize->add_setting( 'services_section_visible', array('default' => true) );
+    $wp_customize->add_control( 'services_section_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'section'     => 'services_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Background Color
+    $wp_customize->add_setting( 'services_bg_gray', array('default' => false) );
+    $wp_customize->add_control( 'services_bg_gray', array(
+        'label'    => __( 'Fundo Cinza (Zebrado)', 'amalabs' ),
+        'section'  => 'services_section',
+        'type'     => 'checkbox',
+    ) );
+
     $wp_customize->add_setting( 'services_title', array('default' => 'Nossos Serviços') );
     $wp_customize->add_control( 'services_title', array('label' => 'Título da Seção', 'section' => 'services_section', 'type' => 'text') );
+
+    // --- NOVA SEÇÃO: O QUE FAZEMOS ---
+    $wp_customize->add_section( 'what_we_do_section', array(
+        'title'    => __( 'O Que Fazemos', 'amalabs' ),
+        'priority' => 31, 
+    ) );
+
+    // Visibility
+    $wp_customize->add_setting( 'what_we_do_visible', array('default' => true) );
+    $wp_customize->add_control( 'what_we_do_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'description' => __( 'ID da seção para menu: #oquefazemos', 'amalabs' ),
+        'section'     => 'what_we_do_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Background Color
+    $wp_customize->add_setting( 'what_we_do_bg_gray', array('default' => false) );
+    $wp_customize->add_control( 'what_we_do_bg_gray', array(
+        'label'    => __( 'Fundo Cinza (Zebrado)', 'amalabs' ),
+        'section'  => 'what_we_do_section',
+        'type'     => 'checkbox',
+    ) );
+
+    // Title
+    $wp_customize->add_setting( 'what_we_do_title', array('default' => 'O Que Fazemos') );
+    $wp_customize->add_control( 'what_we_do_title', array(
+        'label'    => __( 'Título', 'amalabs' ),
+        'section'  => 'what_we_do_section',
+        'type'     => 'text',
+    ) );
+
+    // Intro
+    $wp_customize->add_setting( 'what_we_do_intro', array('default' => 'A AmaLabs atua de forma integrada em todas as etapas do ciclo técnico das soluções infocêuticas.') );
+    $wp_customize->add_control( 'what_we_do_intro', array(
+        'label'    => __( 'Texto de Introdução', 'amalabs' ),
+        'section'  => 'what_we_do_section',
+        'type'     => 'textarea',
+    ) );
+
+    // Column 1
+    $wp_customize->add_setting( 'what_we_do_col1_title', array('default' => 'Pesquisa e Desenvolvimento (P&D)') );
+    $wp_customize->add_control( 'what_we_do_col1_title', array('label' => 'Coluna 1 - Título', 'section' => 'what_we_do_section', 'type' => 'text') );
+    
+    $default_col1_text = "Desenvolvemos soluções a partir de:\n- Modelos de informação biológica e biofrequencial\n- Estudos de sinergias funcionais e organização sistêmica\n- Avaliação de compatibilidade fisiológica e segurança\n\nCada projeto é estruturado com base em lógica funcional, rastreabilidade técnica e coerência biológica.";
+    $wp_customize->add_setting( 'what_we_do_col1_text', array('default' => $default_col1_text) );
+    $wp_customize->add_control( 'what_we_do_col1_text', array('label' => 'Coluna 1 - Texto', 'section' => 'what_we_do_section', 'type' => 'textarea') );
+
+    // Column 2
+    $wp_customize->add_setting( 'what_we_do_col2_title', array('default' => 'Validação Técnica e Protocolos') );
+    $wp_customize->add_control( 'what_we_do_col2_title', array('label' => 'Coluna 2 - Título', 'section' => 'what_we_do_section', 'type' => 'text') );
+
+    $default_col2_text = "A AmaLabs estrutura e valida:\n- Protocolos de aplicação terapêutica e preventiva\n- Modelos de uso progressivo e personalizado\n- Diretrizes técnicas para aplicação segura e consistente\n\nO objetivo é garantir reprodutibilidade funcional, sem comprometer a individualidade biológica.";
+    $wp_customize->add_setting( 'what_we_do_col2_text', array('default' => $default_col2_text) );
+    $wp_customize->add_control( 'what_we_do_col2_text', array('label' => 'Coluna 2 - Texto', 'section' => 'what_we_do_section', 'type' => 'textarea') );
+
+    // Column 3
+    $wp_customize->add_setting( 'what_we_do_col3_title', array('default' => 'Metodologia e Inovação') );
+    $wp_customize->add_control( 'what_we_do_col3_title', array('label' => 'Coluna 3 - Título', 'section' => 'what_we_do_section', 'type' => 'text') );
+
+    $default_col3_text = "Desenvolvemos metodologias próprias para:\n- Aplicação de informação funcional ao organismo\n- Integração entre fisiologia, comportamento e ambiente\n- Evolução contínua de modelos infocêuticos\n\nA inovação é orientada por evidência funcional, coerência sistêmica e aplicabilidade real.";
+    $wp_customize->add_setting( 'what_we_do_col3_text', array('default' => $default_col3_text) );
+    $wp_customize->add_control( 'what_we_do_col3_text', array('label' => 'Coluna 3 - Texto', 'section' => 'what_we_do_section', 'type' => 'textarea') );
 
     // Service 1
     $wp_customize->add_setting( 'service_1_title', array('default' => 'Análises Clínicas') );
@@ -307,6 +521,24 @@ function amalabs_customize_register( $wp_customize ) {
         'title'    => __( 'Chamada para Ação (CTA)', 'amalabs' ),
         'priority' => 33,
     ) );
+    
+    // Visibility
+    $wp_customize->add_setting( 'cta_visible', array('default' => true) );
+    $wp_customize->add_control( 'cta_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'description' => __( 'ID da seção para menu: #faleconosco', 'amalabs' ),
+        'section'     => 'cta_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Image (Optional)
+    $wp_customize->add_setting( 'cta_image' );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'cta_image', array(
+        'label'    => __( 'Imagem (Opcional)', 'amalabs' ),
+        'description' => __( 'Se selecionada, a seção mudará para duas colunas.', 'amalabs' ),
+        'section'  => 'cta_section',
+        'settings' => 'cta_image',
+    ) ) );
     
     $wp_customize->add_setting( 'cta_title', array('default' => 'Cuide da sua saúde com quem entende') );
     $wp_customize->add_control( 'cta_title', array('label' => 'CTA Título', 'section' => 'cta_section', 'type' => 'text') );
