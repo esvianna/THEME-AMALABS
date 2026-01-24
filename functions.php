@@ -505,6 +505,32 @@ function amalabs_customize_register( $wp_customize ) {
         'priority' => 32,
     ) );
 
+    // Visibility
+    $wp_customize->add_setting( 'products_section_visible', array('default' => true) );
+    $wp_customize->add_control( 'products_section_visible', array(
+        'label'       => __( 'Exibir Seção', 'amalabs' ),
+        'description' => __( 'ID da seção para menu: #produtos', 'amalabs' ),
+        'section'     => 'products_section',
+        'type'        => 'checkbox',
+    ) );
+
+    // Background Color
+    $wp_customize->add_setting( 'products_bg_gray', array('default' => false) );
+    $wp_customize->add_control( 'products_bg_gray', array(
+        'label'    => __( 'Fundo Cinza (Zebrado)', 'amalabs' ),
+        'section'  => 'products_section',
+        'type'     => 'checkbox',
+    ) );
+
+    // Hide Cart Control
+    $wp_customize->add_setting( 'hide_cart_if_products_hidden', array('default' => false) );
+    $wp_customize->add_control( 'hide_cart_if_products_hidden', array(
+        'label'       => __( 'Ocultar Carrinho no Menu', 'amalabs' ),
+        'description' => __( 'Se marcado, o ícone do carrinho sumirá do topo se a seção de produtos estiver ocultada.', 'amalabs' ),
+        'section'     => 'products_section',
+        'type'        => 'checkbox',
+    ) );
+
     $wp_customize->add_setting( 'products_title', array('default' => 'Nossos Produtos') );
     $wp_customize->add_control( 'products_title', array('label' => 'Título da Seção', 'section' => 'products_section', 'type' => 'text') );
 

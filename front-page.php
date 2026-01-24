@@ -17,7 +17,7 @@ get_header();
     }
     ?>
     <section class="hero-section" <?php echo $hero_style; ?>>
-        <div class="container hero-content">
+        <div class="container hero-content hero-text-shadow">
             <h1><?php echo esc_html( get_theme_mod( 'hero_title', 'Excelência em Diagnósticos' ) ); ?></h1>
             <p><?php echo esc_html( get_theme_mod( 'hero_text', 'Tecnologia de ponta e profissionais dedicados para cuidar da sua saúde com precisão e agilidade.' ) ); ?></p>
             <div class="hero-actions">
@@ -57,7 +57,7 @@ get_header();
     <section id="amalabs" class="amalabs-section" style="padding: 80px 0; background-color: <?php echo get_theme_mod( 'amalabs_bg_gray', false ) ? '#f8f9fa' : '#ffffff'; ?>;">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 40px;"><?php echo esc_html( get_theme_mod( 'amalabs_section_title', 'Quem somos?' ) ); ?></h2>
-            <div class="section-content" style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1em; line-height: 1.8;">
+            <div class="section-content section-content-narrow" style="margin: 0 auto; text-align: center; font-size: 1.1em; line-height: 1.8;">
                 <?php 
                 $default_amalabs_text = "A AmaLabs é um laboratório especializado em pesquisa, desenvolvimento e validação de soluções infocêuticas, com atuação fundamentada em princípios de informação biológica, comunicação sistêmica e autorregulação fisiológica.\n\nPartimos do entendimento de que os sistemas biológicos respondem não apenas a estímulos químicos, mas também a informações organizacionais capazes de modular funções, ritmos e interações celulares. Dessa forma, a AmaLabs desenvolve soluções que atuam como vetores informacionais, favorecendo processos adaptativos e restaurando coerência funcional ao organismo.\n\nNossa abordagem integra ciência aplicada, modelagem sistêmica e metodologia técnica, com foco em segurança, reprodutibilidade e aplicabilidade clínica.";
                 echo wpautop( esc_html( get_theme_mod( 'amalabs_section_text', $default_amalabs_text ) ) ); 
@@ -72,7 +72,7 @@ get_header();
     <section id="solucoes" class="solucoes-section" style="padding: 80px 0; background-color: <?php echo get_theme_mod( 'solucoes_bg_gray', true ) ? '#f8f9fa' : '#ffffff'; ?>;">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 40px;"><?php echo esc_html( get_theme_mod( 'solucoes_section_title', 'Soluções Infocêuticas' ) ); ?></h2>
-            <div class="section-content" style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1em; line-height: 1.8;">
+            <div class="section-content section-content-narrow" style="margin: 0 auto; text-align: center; font-size: 1.1em; line-height: 1.8;">
                 <?php echo wpautop( esc_html( get_theme_mod( 'solucoes_section_text', 'Texto sobre Soluções Infocêuticas...' ) ) ); ?>
             </div>
         </div>
@@ -86,13 +86,13 @@ get_header();
             <h2 class="section-title" style="text-align: center; margin-bottom: 20px; text-transform: uppercase;">
                 <?php echo esc_html( get_theme_mod( 'what_we_do_title', 'O Que Fazemos' ) ); ?>
             </h2>
-            <div class="section-intro" style="text-align: center; max-width: 800px; margin: 0 auto 50px; font-size: 1.1em;">
+            <div class="section-intro section-content-narrow" style="text-align: center; margin: 0 auto 50px; font-size: 1.1em;">
                 <?php echo wpautop( esc_html( get_theme_mod( 'what_we_do_intro', 'A AmaLabs atua de forma integrada em todas as etapas do ciclo técnico das soluções infocêuticas.' ) ) ); ?>
             </div>
 
             <div class="features-grid services-grid"> <!-- Reusing existing grid classes -->
                 <!-- Col 1 -->
-                <div class="feature-card service-item" style="text-align: left;">
+                <div class="feature-card service-item modern-card <?php echo get_theme_mod( 'what_we_do_bg_gray', false ) ? 'bg-white' : 'bg-gray'; ?>" style="text-align: left;">
                     <h3 style="margin-bottom: 15px;"><?php echo esc_html( get_theme_mod( 'what_we_do_col1_title', 'Pesquisa e Desenvolvimento (P&D)' ) ); ?></h3>
                     <div class="content">
                         <?php 
@@ -103,7 +103,7 @@ get_header();
                 </div>
 
                 <!-- Col 2 -->
-                <div class="feature-card service-item" style="text-align: left;">
+                <div class="feature-card service-item modern-card <?php echo get_theme_mod( 'what_we_do_bg_gray', false ) ? 'bg-white' : 'bg-gray'; ?>" style="text-align: left;">
                     <h3 style="margin-bottom: 15px;"><?php echo esc_html( get_theme_mod( 'what_we_do_col2_title', 'Validação Técnica e Protocolos' ) ); ?></h3>
                     <div class="content">
                         <?php 
@@ -114,7 +114,7 @@ get_header();
                 </div>
 
                 <!-- Col 3 -->
-                <div class="feature-card service-item" style="text-align: left;">
+                <div class="feature-card service-item modern-card <?php echo get_theme_mod( 'what_we_do_bg_gray', false ) ? 'bg-white' : 'bg-gray'; ?>" style="text-align: left;">
                     <h3 style="margin-bottom: 15px;"><?php echo esc_html( get_theme_mod( 'what_we_do_col3_title', 'Metodologia e Inovação' ) ); ?></h3>
                     <div class="content">
                         <?php 
@@ -133,7 +133,7 @@ get_header();
     <section id="terceirize" class="whitelabel-section" style="padding: 80px 0; background-color: <?php echo get_theme_mod( 'whitelabel_bg_gray', false ) ? '#f8f9fa' : '#ffffff'; ?>;">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 40px;"><?php echo esc_html( get_theme_mod( 'whitelabel_section_title', 'Terceirize sua Marca' ) ); ?></h2>
-            <div class="section-content" style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1em; line-height: 1.8;">
+            <div class="section-content section-content-narrow" style="margin: 0 auto; text-align: center; font-size: 1.1em; line-height: 1.8;">
                 <?php echo wpautop( esc_html( get_theme_mod( 'whitelabel_section_text', 'Texto sobre Terceirize sua Marca...' ) ) ); ?>
             </div>
         </div>
@@ -168,8 +168,8 @@ get_header();
     <?php endif; ?>
 
     <!-- Products Section (WooCommerce) -->
-    <?php if ( class_exists( 'WooCommerce' ) ) : ?>
-    <section class="products-section">
+    <?php if ( class_exists( 'WooCommerce' ) && get_theme_mod( 'products_section_visible', true ) ) : ?>
+    <section id="produtos" class="products-section" style="background-color: <?php echo get_theme_mod( 'products_bg_gray', false ) ? '#f8f9fa' : '#ffffff'; ?>;">
         <div class="container">
             <h2 class="section-title"><?php echo esc_html( get_theme_mod( 'products_title', 'Nossos Produtos' ) ); ?></h2>
             <?php 
@@ -190,7 +190,7 @@ get_header();
             if ( $cta_image ) : 
                 // Grid Layout
             ?>
-            <div class="cta-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; text-align: left;">
+            <div class="cta-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px; align-items: center; text-align: left;">
                 <div class="cta-image">
                     <img src="<?php echo esc_url( $cta_image ); ?>" alt="Fale Conosco" style="width: 100%; height: auto; border-radius: 8px;">
                 </div>
