@@ -1,0 +1,12 @@
+---
+description: Backlog oficial via GitHub Issues + Project Amalabs
+alwaysApply: true
+---
+
+# GitHub Issues + Project
+
+- Backlog oficial: Issues + Project **Amalabs #16** (`docs/GITHUB-WORKFLOW.md`) — confirmado.
+- Features/bugs: issue + card antes de codificar; Status: Backlog → Ready → In progress → In review → Done.
+- **Done** só o usuário humano. IA no máximo → **In review** + como testar.
+- Não commit/push sem pedido explícito. Não inventar IDs/URLs.
+- Docs (`PROJECT_STATUS`, `ROADMAP`) espelham o quadro; não substituem Issues.

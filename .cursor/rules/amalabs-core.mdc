@@ -1,0 +1,15 @@
+---
+description: Regras centrais do tema AmaLabs — contexto, qualidade e continuidade
+alwaysApply: true
+---
+
+# AmaLabs Theme — núcleo
+
+- Projeto: tema WordPress + WooCommerce (`esvianna/THEME-AMALABS`). Responder em **PT-BR**.
+- **Produção (`amalabs.com.br`) é a fonte oficial do tema.** Não sobrescrever o servidor com o repo sem diff + autorização. Preferir sync **prod → repo** se divergirem.
+- Antes de codificar: ler `PROJECT_STATUS.md`, e se relevante `DECISIONS.md`, `SECURITY.md`, `TESTING.md`, `docs/GITHUB-WORKFLOW.md`.
+- Avaliar impacto; preservar comportamento existente; **proibido** refatoração ampla sem pedido.
+- Prefixo de funções/hooks: `amalabs_`. UI em PT-BR; código em inglês.
+- Qualidade: simplicidade, funções pequenas, nomes claros, baixo acoplamento, reuso de defaults/`theme_mod`, tratamento de ausência de WooCommerce.
+- Depois de alterar código: atualizar `PROJECT_STATUS.md` + `CHANGELOG.md` (Unreleased); decisões → `DECISIONS.md`; informar como testar e o próximo passo lógico.
+- Não commit/push sem pedido explícito. Nunca deployar pasta `.git` para o tema em produção.

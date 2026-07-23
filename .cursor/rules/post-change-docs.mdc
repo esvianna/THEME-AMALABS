@@ -1,0 +1,14 @@
+---
+description: Atualizar histórico e status após mudanças de código
+alwaysApply: true
+---
+
+# Pós-alteração (documentação)
+
+Ao concluir mudança de código (não só chat):
+
+1. `PROJECT_STATUS.md` — onde paramos, feito, pendente, próximo passo, riscos.
+2. `CHANGELOG.md` — entrada em `[Unreleased]`.
+3. Decisão arquitetural/segurança/fluxo → `DECISIONS.md`.
+4. Na resposta: como testar (ver `TESTING.md`) + próximo passo lógico + issue/card se aplicável.
+5. Não atualizar docs de governança em refactors cosméticos inventados; só quando o trabalho real mudar o estado do projeto.

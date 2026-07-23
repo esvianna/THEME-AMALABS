@@ -1,0 +1,12 @@
+---
+description: Segurança WP específica deste tema (XSS, CSRF, theme_mod)
+globs: "**/*.{php,js}"
+alwaysApply: false
+---
+
+# Segurança
+
+- Seguir `SECURITY.md`. Prioridade atual: nonce na busca AJAX; sanitize de cores/CSS dinâmico; escape no HTML gerado em `ajax-search.js`.
+- Nunca confiar em `$_POST`/`$_GET` sem sanitize. Não logar dados sensíveis.
+- Novos `add_setting` do Customizer **exigem** `sanitize_callback`.
+- XSS: título/URL/imagem de produto no JS devem ser tratados como não confiáveis.

@@ -1,0 +1,14 @@
+---
+description: Padrões PHP/CSS/JS do tema WordPress AmaLabs
+globs: "**/*.{php,css,js}"
+alwaysApply: false
+---
+
+# WordPress / WooCommerce
+
+- Escapar toda saída (`esc_html`, `esc_url`, `esc_attr`, `wp_kses_post`). Sanitizar entradas e `theme_mod` (`sanitize_callback`).
+- AJAX: `wp_localize_script` + nonce + `check_ajax_referer`. Manter `wp_ajax_` e `wp_ajax_nopriv_` só quando fizer sentido.
+- Guardas: `class_exists( 'WooCommerce' )` antes de APIs Woo.
+- Preferir `WP_Query`/APIs WP a SQL raw. Enqueue via `wp_enqueue_*` (evitar assets soltos sem dependências).
+- Não introduzir bundler/React sem decisão em `DECISIONS.md`. Evitar CSS/JS inline novos; migrar os existentes só quando a tarefa tocar essa área.
+- Customizer: defaults únicos; não duplicar textos longos em template + `functions.php` se puder evitar.
