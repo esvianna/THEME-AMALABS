@@ -6,11 +6,21 @@ Não há suíte automatizada ainda. Prioridade: **testes manuais mínimos + regr
 
 ## Ambiente
 
-- WordPress recente + tema AmaLabs ativo
+- **Homologação / testes WLC:** produção `https://amalabs.com.br` (site ainda em fase de homologação — autorizado 2026-07-23)
+- WordPress + tema AmaLabs ativo
 - WooCommerce instalado (e um teste **sem** Woo, para degradar com elegância)
+- Plugin `white-label-checkout` em `wp-content/plugins/white-label-checkout/` (deploy separado do tema; sem `.git`)
 - Alguns produtos publicados (com e sem imagem)
 - Menu atribuído à localização `primary`
 - Customizer com pelo menos uma imagem de hero
+
+### Checklist rápido — scaffold WLC (#11) em prod
+
+- [ ] Plugins → White Label Checkout ativo (v0.1.0)
+- [ ] Menu admin **WLC Parceiros** visível (Administrador)
+- [ ] CPT: criar/listar parceiro (só título por enquanto)
+- [ ] Definições WLC mostra versão + schema `1.0.0`
+- [ ] Front do site institucional sem fatal (smoke home)
 
 ---
 

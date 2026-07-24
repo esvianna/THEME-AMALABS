@@ -1,66 +1,49 @@
 # PROJECT_STATUS — AmaLabs Theme
 
-> Atualizar este arquivo ao final de cada sessão de trabalho com código ou decisões relevantes.
-> Última atualização: 2026-07-23 (#9 Done; #10 In review)
+> Última atualização: 2026-07-23 (sessão WLC: #11–#15 parcial · plugin v0.6.2 em prod)
 
 ---
 
 ## Onde paramos
 
-Tema oficial alinhado em prod/repo. Foco atual: **checkout white-label por parceiro**.
-
-**Parent [#8](https://github.com/esvianna/THEME-AMALABS/issues/8)** em *In progress*.
+Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`blue-mind`).
 
 | Issue | Status | Notas |
 |-------|--------|--------|
-| [#9](https://github.com/esvianna/THEME-AMALABS/issues/9) ADR | **Done** | `docs/architecture/PARTNER-CHECKOUT.md` · D-009 |
-| [#10](https://github.com/esvianna/THEME-AMALABS/issues/10) modelo de dados | **In review** | Schema em [`white-label-checkout/docs/DATA-MODEL.md`](https://github.com/esvianna/white-label-checkout/blob/main/docs/DATA-MODEL.md) · D-010 proposto |
-| #11–#17 | Backlog | Scaffold em seguida após Done do #10 |
-| #18 | Backlog Fase 2 | Gateway / From / fiscal |
+| #9–#12 | **Done** | ADR, schema, scaffold, CRUD |
+| [#13](https://github.com/esvianna/THEME-AMALABS/issues/13) URL/sessão/UTM | Validar **Done** | Link + sessão + order meta |
+| [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) skin checkout | **In progress** | v0.6.2 layout conversão (sem header/footer tema) |
+| #14 · #16 · #17 | Backlog | Catálogo full, e-mails, relatório |
+| #18 | Fase 2 | Gateway / From / fiscal |
+| #1–#3 | Ready (tema) | Fora desta sprint |
 
-**Bloqueio atual:** validação humana do #10 → **Done**. Depois: **#11 scaffold** no repo do plugin.
+**Plugin:** `white-label-checkout` **v0.6.2** em `wp-content/plugins/white-label-checkout/` (sem `.git`). Capability `manage_wlc_partners`.
 
-**Workspace Cursor:** `C:\Users\dudav\Documents\Projetos\AMALABS\amalabs.code-workspace` (tema + plugin).
-
----
-
-## Board (white-label)
-
-| Status | Issues |
-|--------|--------|
-| Done | #9 |
-| In review | #10 |
-| In progress | #8 (épico) |
-| Backlog Fase 1 | #11–#17 |
-| Backlog Fase 2 | #18 |
-
-Também Ready (segurança legado): #1–#3 · Backlog tema: #4–#7
-
-Quadro: https://github.com/users/esvianna/projects/16
+**Workspace:** `C:\Users\dudav\Documents\Projetos\AMALABS\amalabs.code-workspace`
 
 ---
 
-## O que já foi feito (sessões recentes)
+## Feito nesta sessão (2026-07-23)
 
-- [x] Governança + Project #16
-- [x] Sync prod ↔ repo (código idêntico) + `.git` removido de prod
-- [x] #8 planeamento + pesquisa de mercado
-- [x] Issues filhas #9–#18
-- [x] #9 ADR + repo `white-label-checkout`
-- [x] #10 draft de schema publicado no GitHub (commit `7dce55c`)
+- [x] #10 Done · D-010 Aceito · #11 scaffold + CPT · deploy/activate prod
+- [x] #12 CRUD admin (Blue Mind validado)
+- [x] #13 URL `/parceiro/{slug}/`, token, sessão `wlc_ctx`, UTM → order meta
+- [x] #15 parcial: blank checkout, timer honesto, trust, sticky resumo, polish layout (gap colunas, labels)
+- [x] Docs: MVP-INTERNAL, URL-CONTRACT, CHECKOUT-CONVERSION
 
 ---
 
 ## Pendente imediato
 
-1. Humano: validar DATA-MODEL → mover #10 para **Done** (e D-010 → Aceito)
-2. #11 scaffold do plugin (bootstrap, CPT, pastas)
-3. Cascata #12–#17; não pedir decisões de gateway/e-mail ao cliente até a base estar clara
+1. Humano: fechar #13 Done se happy path ok; continuar review visual #15
+2. #14 catálogo restrito completo
+3. #15 thank-you branded + 2.º parceiro
+4. #16 / #17 e-mails e relatório
 
 ---
 
-## Como retomar
+## Como testar agora
 
-1. Se #10 ainda In review → ler e aprovar o schema  
-2. Se #10 Done → começar **#11** no repo `white-label-checkout`  
-3. `docs/RESEARCH-PARTNER-CHECKOUT.md` se precisar de referências de mercado
+1. Janela anónima → link campanha Blue Mind (admin WLC)
+2. Checkout branded: sem chrome AmaLabs; timer; gap Informações/Resumo; imagem no resumo
+3. Finalizar pedido (transferência) → meta `_wlc_*` no pedido Woo

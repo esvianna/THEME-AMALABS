@@ -14,8 +14,13 @@ Versão do tema em `style.css` (`Version:`).
 - Issue [#8](https://github.com/esvianna/THEME-AMALABS/issues/8): planejamento checkout white-label (plugin; e-mails por parceiro) + issues filhas **#9–#18** (Fase 1 fundação; Fase 2 decisões do cliente).
 - Decisão D-009: plugin em repo separado [`esvianna/white-label-checkout`](https://github.com/esvianna/white-label-checkout) (criado).
 - Issue [#9](https://github.com/esvianna/THEME-AMALABS/issues/9) ADR aceite (Done); arquitetura em `docs/architecture/PARTNER-CHECKOUT.md`.
-- Issue [#10](https://github.com/esvianna/THEME-AMALABS/issues/10) modelo de dados em *In review*; schema canónico no plugin + D-010 (CPT `wlc_partner` + meta, sem custom tables no MVP).
-- Políticas confirmadas: Done só pelo humano; commit/push só sob pedido.
+- Issue [#10](https://github.com/esvianna/THEME-AMALABS/issues/10) modelo de dados **Done**; D-010 Aceito (CPT `wlc_partner` + meta, sem custom tables no MVP).
+- Issue [#11](https://github.com/esvianna/THEME-AMALABS/issues/11) scaffold **Done** (validado em prod; parceiro Blue Mind).
+- Issue [#12](https://github.com/esvianna/THEME-AMALABS/issues/12) CRUD admin **Done**.
+- Issue [#13](https://github.com/esvianna/THEME-AMALABS/issues/13) URL/token/sessão/UTM — v0.3.1 (sessão Woo + fallback catálogo).
+- Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) skin checkout **In progress** — plugin v0.6.2: layout conversão, gap colunas, labels flutuantes, sticky resumo, timer, trust no CTA.
+- Homologação WLC autorizada em `amalabs.com.br`.
+- Políticas confirmadas: Done só pelo humano; commit/push só sob pedido; #1–#3 fora da sprint mental do épico #8.
 - Decisões D-007 (produção = versão oficial) e D-008 (sem `.git` no tema em produção).
 
 ### Security

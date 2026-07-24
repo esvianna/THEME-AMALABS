@@ -74,7 +74,14 @@ Formato leve (ADR). Registrar decisões que afetam arquitetura, segurança ou fl
 ## D-010 — Storage de parceiros: CPT + post meta (sem custom tables no MVP)
 
 - **Data:** 2026-07-23
-- **Status:** Proposto (issue [#10](https://github.com/esvianna/THEME-AMALABS/issues/10) em *In review*)
+- **Status:** Aceito (issue [#10](https://github.com/esvianna/THEME-AMALABS/issues/10) Done)
 - **Contexto:** Modelo de dados do white-label-checkout.
 - **Decisão:** Entidade Partner como CPT `wlc_partner` + meta `_wlc_*`; pedido via order meta HPOS-safe; sessão cookie/transient; gateway/From só como estrutura reservada (Fase 2). Sem tabelas custom no MVP. Schema canónico: [`docs/DATA-MODEL.md`](https://github.com/esvianna/white-label-checkout/blob/main/docs/DATA-MODEL.md) no repo do plugin.
 - **Consequências:** Admin WP nativo; migrations via `wlc_db_version`; revisitar custom tables se escala/auditoria exigirem.
+
+## D-011 — Capability `manage_wlc_partners`
+
+- **Data:** 2026-07-23
+- **Status:** Aceito (issue [#11](https://github.com/esvianna/THEME-AMALABS/issues/11))
+- **Decisão:** Capability única `manage_wlc_partners` para CPT/admin do plugin (não `manage_amalabs_partners`). Prefixo alinhado a `wlc_`.
+- **Consequências:** CPT `wlc_partner` mapeia caps para essa capability; concedida a `administrator` na ativação.

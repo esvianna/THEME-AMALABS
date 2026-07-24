@@ -67,7 +67,7 @@ O tema pode, no máximo, manter a loja oculta como já está; qualquer override 
 
 - WordPress plugin clássico + WooCommerce (sem build step obrigatório no MVP; JS/CSS enqueued).
 - Prefixo: `wlc_` (funções/hooks) / text domain `white-label-checkout` (alternativa interna `amalabs_pc_` só se colidir — preferir `wlc_`).
-- Capability: `manage_wlc_partners` (ou `manage_amalabs_partners` se quiser namespace operacional AmaLabs no admin — decidir no scaffold #11).
+- Capability: `manage_wlc_partners` (D-011; não `manage_amalabs_partners`).
 - Idioma docs/UI admin: PT-BR; código em inglês.
 - Produção do **plugin**: pasta `wp-content/plugins/white-label-checkout/` — deploy separado do tema; **nunca** enviar `.git` ao document root.
 
