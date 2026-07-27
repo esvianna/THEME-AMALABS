@@ -9,6 +9,7 @@ Versão do tema em `style.css` (`Version:`).
 
 ### Changed
 
+- Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.10.2** — preview WhatsApp/OG por parceiro no link `/parceiro/…` (título/descrição/logo configuráveis).
 - Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.10.1** — checkout só Brasil (campo país oculto; Woo vende/envia apenas para BR).
 - Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.10.0** — webhook do parceiro (`order.created` / `order.paid`), payload UTM+ids, secret no header, botão Testar no admin.
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.9.1** — frete fixo R$ 15 (Correios legacy off); proxy ViaCEP; CEP antes do endereço no Blocks; CSS do rádio de frete sem sobrepor o texto.
