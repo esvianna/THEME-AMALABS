@@ -7,6 +7,11 @@ Versão do tema em `style.css` (`Version:`).
 
 ## [Unreleased]
 
+### Fixed
+
+- Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.10.4** — “Testar webhook” sem feedback: JS admin passa a ser inline (evita 403 em `assets/` com pastas `700` pós-SCP) + URL do plugin com scheme HTTPS no admin.
+- Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.10.3** — webhook compatível com Google Apps Script (POST→302→GET; evita Error 400 do follow automático do WP HTTP). Testado com URL Blue Mind → `{"ok":true}`.
+
 ### Changed
 
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.10.2** — preview WhatsApp/OG por parceiro no link `/parceiro/…` (título/descrição/logo configuráveis).
