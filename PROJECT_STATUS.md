@@ -18,7 +18,7 @@ Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`b
 | #18 | Fase 2 | Gateway / From / fiscal |
 | #1–#3 | Ready (tema) | Fora desta sprint |
 
-**Plugin:** `white-label-checkout` **v0.10.0** em prod (sem `.git`).
+**Plugin:** `white-label-checkout` **v0.10.1** em prod (sem `.git`). Loja: vende/envia só para **Brasil**; país oculto no checkout WLC.
 
 **Workspace:** `C:\Users\dudav\Documents\Projetos\AMALABS\amalabs.code-workspace`
 
