@@ -16,11 +16,24 @@ Não há suíte automatizada ainda. Prioridade: **testes manuais mínimos + regr
 
 ### Checklist rápido — scaffold WLC (#11) em prod
 
-- [ ] Plugins → White Label Checkout ativo (v0.1.0)
+- [ ] Plugins → White Label Checkout ativo (v0.7.0+)
 - [ ] Menu admin **WLC Parceiros** visível (Administrador)
 - [ ] CPT: criar/listar parceiro (só título por enquanto)
 - [ ] Definições WLC mostra versão + schema `1.0.0`
 - [ ] Front do site institucional sem fatal (smoke home)
+
+### Checklist — skin checkout (#15) Figma Make
+
+- [ ] Link campanha Blue Mind → checkout sem header/footer AmaLabs
+- [ ] Barra de urgência full-bleed no topo com timer da sessão
+- [ ] One-page (sem indicador de steps)
+- [ ] Trust grid (4 badges) abaixo do formulário
+- [ ] Resumo sticky com timer espelhado
+- [ ] Campos BR: CPF/CNPJ, número, bairro
+- [ ] CEP válido → autofill ViaCEP → opções PAC/SEDEX
+- [ ] Nome completo (sobrenome oculto); convidado e “Entrar” funcionam
+- [ ] (Opcional) prova social / depoimentos via meta do parceiro
+- [ ] Sem números inventados de stock / “pessoas a ver”
 
 ---
 

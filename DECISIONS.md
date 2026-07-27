@@ -85,3 +85,19 @@ Formato leve (ADR). Registrar decisões que afetam arquitetura, segurança ou fl
 - **Status:** Aceito (issue [#11](https://github.com/esvianna/THEME-AMALABS/issues/11))
 - **Decisão:** Capability única `manage_wlc_partners` para CPT/admin do plugin (não `manage_amalabs_partners`). Prefixo alinhado a `wlc_`.
 - **Consequências:** CPT `wlc_partner` mapeia caps para essa capability; concedida a `administrator` na ativação.
+
+## D-012 — Frete Correios + ViaCEP + nome único no WLC
+
+- **Data:** 2026-07-24
+- **Status:** Aceito (atualizado 2026-07-27)
+- **Contexto:** Checkout Blocks parceiro precisa de cotação BR, menos fricção no endereço e UX de nome único; Melhor Envio fica para fase 2.
+- **Decisão:** (1) Homologação com **taxa fixa** (R$ 15) — API legacy Correios não responde; PAC/SEDEX desligados. (2) Autofill CEP via **proxy** `wlc/v1/cep/{cep}` → ViaCEP. (3) Guest on + login reminder on. (4) UX “Nome completo” + split Store API. (5) Ordem BR: CEP antes do endereço.
+- **Consequências:** Frete real (Melhor Envio / CWS) quando a homologação de UX estiver ok.
+
+## D-013 — Webhook do parceiro (MVP enxuto)
+
+- **Data:** 2026-07-27
+- **Status:** Aceito (issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19))
+- **Contexto:** Campanhas patrocinadas com UTM; parceiro quer receber eventos no webhook próprio.
+- **Decisão:** (1) Eventos MVP: `order.created` + `order.paid` apenas. (2) Abandono fora do MVP. (3) Payload **enxuto** (attribution/UTM + ids/status/totais mínimos) — sem PII completo. (4) Auth por **secret no header** (Bearer / `X-WLC-Secret`).
+- **Consequências:** Menos risco LGPD; CRM do parceiro usa ids/UTM; abandono e payload completo só se o cliente pedir.
