@@ -101,3 +101,12 @@ Formato leve (ADR). Registrar decisões que afetam arquitetura, segurança ou fl
 - **Contexto:** Campanhas patrocinadas com UTM; parceiro quer receber eventos no webhook próprio.
 - **Decisão:** (1) Eventos MVP: `order.created` + `order.paid` apenas. (2) Abandono fora do MVP. (3) Payload **enxuto** (attribution/UTM + ids/status/totais mínimos) — sem PII completo. (4) Auth por **secret no header** (Bearer / `X-WLC-Secret`).
 - **Consequências:** Menos risco LGPD; CRM do parceiro usa ids/UTM; abandono e payload completo só se o cliente pedir.
+- **Atualização 2026-07-30 (D-014):** PII de contato/endereço passou a ser enviado — ver D-014.
+
+## D-014 — Webhook: incluir customer (nome, e-mail, telefone, endereço)
+
+- **Data:** 2026-07-30
+- **Status:** Aceito (pedido do parceiro Blue Mind / #19)
+- **Contexto:** Parceiro precisa dos dados cadastrais no Apps Script / CRM para campanhas.
+- **Decisão:** Payload de `order.created` / `order.paid` / `webhook.test` inclui bloco `customer` com `name`, `email`, `phone` e `address` (billing: street, number, neighborhood, city, state, postcode, country). CPF continua fora deste escopo.
+- **Consequências:** Maior superfície LGPD — secret + HTTPS obrigatórios na prática; parceiro responsável pelo destino.

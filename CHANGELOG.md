@@ -14,6 +14,7 @@ Versão do tema em `style.css` (`Version:`).
 
 ### Changed
 
+- Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.11.2** — webhook inclui bloco `customer` (nome, e-mail, telefone, endereço) em created/paid/test (D-014).
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) / Asaas: plugin **white-label-checkout v0.11.1** — notices Woo (login/cupom/erro) alinhados ao skin WLC no checkout clássico.
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) / Asaas: plugin **white-label-checkout v0.11.0** — checkout clássico `[woocommerce_checkout]` (Asaas Pix/Boleto/Cartão); skin WLC adaptada (`wlc-classic-checkout`); ViaCEP/nome/timer no markup clássico. Backup Blocks na meta `_wlc_backup_checkout_content`.
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.10.2** — preview WhatsApp/OG por parceiro no link `/parceiro/…` (título/descrição/logo configuráveis).
