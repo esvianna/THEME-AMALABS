@@ -110,3 +110,20 @@ Formato leve (ADR). Registrar decisões que afetam arquitetura, segurança ou fl
 - **Contexto:** Parceiro precisa dos dados cadastrais no Apps Script / CRM para campanhas.
 - **Decisão:** Payload de `order.created` / `order.paid` / `webhook.test` inclui bloco `customer` com `name`, `email`, `phone` e `address` (billing: street, number, neighborhood, city, state, postcode, country). CPF continua fora deste escopo.
 - **Consequências:** Maior superfície LGPD — secret + HTTPS obrigatórios na prática; parceiro responsável pelo destino.
+
+## D-015 — Thank-you WLC: página WP + shortcode na URL `order-received`
+
+- **Data:** 2026-07-31
+- **Status:** Aceito (issue [#20](https://github.com/esvianna/THEME-AMALABS/issues/20))
+- **Contexto:** Success screen editável (obrigado, conta, rastreio, atendimento) sem quebrar retorno Asaas.
+- **Decisão:** (1) Conteúdo editorial em **página WordPress**; (2) shortcode WLC para dados do pedido com `key` válida; (3) no parceiro, **seletor de page ID** (não URL solta); (4) manter URL nativa Woo **`order-received`** e injetar o conteúdo da página (opção B). Redirect para slug da página (opção A) só com motivo forte + testes de gateway.
+- **Consequências:** Compatível com Asaas; ops edita a página no Gutenberg; fallback = thank-you Woo se page ID vazio.
+- **Atualização 2026-08-25 (D-016):** URL HTTPS externa opcional por parceiro passou a ser permitida — ver D-016. A opção B desta decisão continua válida quando não houver URL externa.
+
+## D-016 — Thank-you WLC: URL HTTPS externa opcional (redirect após pago)
+
+- **Data:** 2026-08-25
+- **Status:** Aceito (issue [#22](https://github.com/esvianna/THEME-AMALABS/issues/22))
+- **Contexto:** Parceiro Blue Mind publicou página própria (`bluemindsaude.com/obrigado/`). A D-015 cobre thank-you editorial no WP da AmaLabs; não havia campo de URL de redirecionamento.
+- **Decisão:** (1) Meta `_wlc_thankyou_url` (HTTPS, opcional) no cadastro do parceiro. (2) Redirect **302** na `order-received` **somente se o pedido já estiver pago** — Pix/Boleto pendentes permanecem no Woo (QR/código). (3) Sem query string (`order`/`key`) no MVP. (4) Convive com #20: URL externa **ou** página WP; URL externa tem prioridade. (5) URL vazia/inválida → thank-you Woo atual. Não alterar `woocommerce_get_return_url` do gateway (Asaas continua retornando em `order-received`).
+- **Consequências:** Cartão (pago na hora) vai direto à página do parceiro; Pix/Boleto só redirecionam depois do pagamento, se o cliente voltar/atualizar a thank-you Woo. Host da URL entra em `allowed_redirect_hosts` só na hora do redirect.

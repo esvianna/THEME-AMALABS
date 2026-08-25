@@ -35,6 +35,15 @@ Não há suíte automatizada ainda. Prioridade: **testes manuais mínimos + regr
 - [ ] (Opcional) prova social / depoimentos via meta do parceiro
 - [ ] Sem números inventados de stock / “pessoas a ver”
 
+### Checklist — URL de obrigado externa (#22 / D-016)
+
+- [ ] Admin do parceiro: campo **URL de obrigado (HTTPS)**; HTTP/javascript rejeitados ao salvar
+- [ ] URL preenchida + pedido **pago** (cartão) → 302 para a página do parceiro, sem query string
+- [ ] Pix/Boleto **pendente** → permanece em `order-received` (QR/código visível)
+- [ ] Após Pix pago, recarregar `order-received` → 302
+- [ ] URL vazia → thank-you Woo atual
+- [ ] Pedido sem `_wlc_partner_id` (loja institucional) não redireciona
+
 ---
 
 ## Checklist mínimo (a cada mudança relevante)

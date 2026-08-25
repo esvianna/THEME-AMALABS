@@ -14,6 +14,8 @@ Versão do tema em `style.css` (`Version:`).
 
 ### Changed
 
+- Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.11.5** — thumb da imagem destacada no resumo; opções de envio em largura total do card.
+- Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.11.4** — resumo clássico: oculta `× qty`; opções de envio em coluna única com título “Escolha a forma de Envio”.
 - Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.11.2** — webhook inclui bloco `customer` (nome, e-mail, telefone, endereço) em created/paid/test (D-014).
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) / Asaas: plugin **white-label-checkout v0.11.1** — notices Woo (login/cupom/erro) alinhados ao skin WLC no checkout clássico.
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) / Asaas: plugin **white-label-checkout v0.11.0** — checkout clássico `[woocommerce_checkout]` (Asaas Pix/Boleto/Cartão); skin WLC adaptada (`wlc-classic-checkout`); ViaCEP/nome/timer no markup clássico. Backup Blocks na meta `_wlc_backup_checkout_content`.
@@ -32,6 +34,8 @@ Versão do tema em `style.css` (`Version:`).
 
 ### Added
 
+- Issue [#22](https://github.com/esvianna/THEME-AMALABS/issues/22): plugin **white-label-checkout v0.11.6** — URL de obrigado HTTPS por parceiro; redirect 302 na `order-received` só se o pedido já estiver pago (D-016). Pix/Boleto pendentes ficam no Woo. Sem query string.
+- Issue [#22](https://github.com/esvianna/THEME-AMALABS/issues/22): WLC — URL de obrigado externa por parceiro (redirect pós-pedido); card no Project.
 - Estrutura de governança: `AGENTS.md`, `PROJECT_STATUS.md`, `ROADMAP.md`, `DECISIONS.md`, `SECURITY.md`, `TESTING.md`, `docs/GITHUB-WORKFLOW.md`, regras em `.cursor/rules/`.
 - Backlog inicial no GitHub Project Amalabs (#16): issues #1–#7 (P0 segurança Ready; P1/P2 no Backlog).
 - Issue [#8](https://github.com/esvianna/THEME-AMALABS/issues/8): planejamento checkout white-label (plugin; e-mails por parceiro) + issues filhas **#9–#18** (Fase 1 fundação; Fase 2 decisões do cliente).

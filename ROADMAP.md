@@ -20,7 +20,8 @@ Legenda: `P0` crítico · `P1` importante · `P2` desejável
 
 | Prioridade | Item | Notas |
 |------------|------|--------|
-| P1 | **Checkout white-label por parceiro** | Épico [#8](https://github.com/esvianna/THEME-AMALABS/issues/8); Fase 1 [#9](https://github.com/esvianna/THEME-AMALABS/issues/9)–[#17](https://github.com/esvianna/THEME-AMALABS/issues/17); Fase 2 decisões [#18](https://github.com/esvianna/THEME-AMALABS/issues/18) |
+| P1 | **Checkout white-label por parceiro** | Épico [#8](https://github.com/esvianna/THEME-AMALABS/issues/8); Fase 1 [#9](https://github.com/esvianna/THEME-AMALABS/issues/9)–[#17](https://github.com/esvianna/THEME-AMALABS/issues/17); thank-you WP [#20](https://github.com/esvianna/THEME-AMALABS/issues/20); URL externa [#22](https://github.com/esvianna/THEME-AMALABS/issues/22); Fase 2 [#18](https://github.com/esvianna/THEME-AMALABS/issues/18) |
+| P2 | **GFI Connect — plugin de pagamento separado** | Pesquisa [#21](https://github.com/esvianna/THEME-AMALABS/issues/21): saldo Gfi Hub como método extra (não substitui Asaas); implementação só após ADR + comercial |
 | P1 | Alinhar copy e seções à marca real (infocêuticos vs lab clínico) | Conteúdo + Customizer defaults |
 | P1 | Templates `page` / `single` / `404` | Evitar layout genérico frágil |
 | P1 | Revisar loja Woo (shop, single product, cart, checkout) | Overrides só se necessário; loja pública continua oculta no modelo parceiro |
