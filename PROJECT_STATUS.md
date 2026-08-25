@@ -12,10 +12,10 @@ Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`b
 |-------|--------|--------|
 | #9–#12 | **Done** | ADR, schema, scaffold, CRUD |
 | [#13](https://github.com/esvianna/THEME-AMALABS/issues/13) URL/sessão/UTM | Validar **Done** | Link + sessão + order meta |
-| [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) skin checkout | **In progress** | classic + Asaas; v0.11.5 thumb + frete full-width; success → #20 / #22 |
+| [#15](https://github.com/esvianna/THEME-AMALABS/issues/15) skin checkout | **In progress** | classic + Asaas; v0.11.6 thank-you URL (#22 Done); thank-you WP → #20 |
 | [#19](https://github.com/esvianna/THEME-AMALABS/issues/19) webhook | **In review** | v0.11.2 customer no payload (D-014) |
 | [#20](https://github.com/esvianna/THEME-AMALABS/issues/20) thank-you WP | **Backlog** | D-015: `order-received` + conteúdo página WP + shortcode |
-| [#22](https://github.com/esvianna/THEME-AMALABS/issues/22) thank-you URL | **In review** | D-016: 302 HTTPS após pago; v0.11.6 em prod; URL preenchida nos 3 Blue Mind |
+| [#22](https://github.com/esvianna/THEME-AMALABS/issues/22) thank-you URL | **Done** | v0.11.6; D-016; Blue Mind → bluemindsaude.com/obrigado/ |
 | #14 · #16 · #17 | Backlog | Catálogo full, e-mails, relatório |
 | #18 | Fase 2 | Gateway / From / fiscal |
 | [#21](https://github.com/esvianna/THEME-AMALABS/issues/21) GFI Connect | **Backlog** | Análise: plugin separado de pagamento (saldo Gfi Hub); não substitui Asaas |
@@ -32,6 +32,7 @@ Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`b
 - [x] Issue [#22](https://github.com/esvianna/THEME-AMALABS/issues/22) URL de obrigado externa por parceiro criada e no Project (P1 / S)
 - [x] Decisões fechadas (D-016): 302 só após pago; sem query string; convive com #20
 - [x] WLC **v0.11.6** — campo `_wlc_thankyou_url` + redirect 302 após pago. Push GitHub + deploy `ama-prod` (sem `.git`)
+- [x] Issue [#22](https://github.com/esvianna/THEME-AMALABS/issues/22) **Done** — validado (cartão/Pix); Project #16 Done
 - [x] URL de obrigado preenchida nos 3 parceiros Blue Mind (`blue-mind1` / `3` / `6`)
 
 ## Sessão anterior (2026-08-19)
@@ -50,9 +51,9 @@ Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`b
 
 ## Pendente imediato
 
-1. Humano: testar #22 (cartão pago → 302; Pix pendente → QR no Woo) e mover para **Done**
-2. Humano: fechar aceite do webhook #19 (n8n / pedido real)
-3. Secret no webhook Blue Mind (recomendado com PII)
+1. Humano: fechar aceite do webhook #19 (n8n / pedido real)
+2. Secret no webhook Blue Mind (recomendado com PII)
+3. #20 thank-you editorial no WP (se parceiro não usar URL externa)
 
 ---
 

@@ -14,6 +14,7 @@ Versão do tema em `style.css` (`Version:`).
 
 ### Changed
 
+- Issue [#22](https://github.com/esvianna/THEME-AMALABS/issues/22) **Done** — URL de obrigado externa validada em prod (WLC v0.11.6).
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.11.5** — thumb da imagem destacada no resumo; opções de envio em largura total do card.
 - Issue [#15](https://github.com/esvianna/THEME-AMALABS/issues/15): plugin **white-label-checkout v0.11.4** — resumo clássico: oculta `× qty`; opções de envio em coluna única com título “Escolha a forma de Envio”.
 - Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.11.2** — webhook inclui bloco `customer` (nome, e-mail, telefone, endereço) em created/paid/test (D-014).
