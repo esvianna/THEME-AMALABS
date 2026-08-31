@@ -7,6 +7,10 @@ Versão do tema em `style.css` (`Version:`).
 
 ## [Unreleased]
 
+### Added
+
+- Issue [#21](https://github.com/esvianna/THEME-AMALABS/issues/21): ADR **D-017** **Aceito** — plugin [`esvianna/gfi-connect-gateway`](https://github.com/esvianna/gfi-connect-gateway) v0.1.0 scaffold (settings, API client, webhook, QR thank-you, cron). Deploy prod (`amalabs.com.br`) ativo com gateway **desabilitado** até credenciais.
+
 ### Fixed
 
 - Issue [#19](https://github.com/esvianna/THEME-AMALABS/issues/19): plugin **white-label-checkout v0.10.4** — “Testar webhook” sem feedback: JS admin passa a ser inline (evita 403 em `assets/` com pastas `700` pós-SCP) + URL do plugin com scheme HTTPS no admin.

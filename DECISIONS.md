@@ -127,3 +127,34 @@ Formato leve (ADR). Registrar decisões que afetam arquitetura, segurança ou fl
 - **Contexto:** Parceiro Blue Mind publicou página própria (`bluemindsaude.com/obrigado/`). A D-015 cobre thank-you editorial no WP da AmaLabs; não havia campo de URL de redirecionamento.
 - **Decisão:** (1) Meta `_wlc_thankyou_url` (HTTPS, opcional) no cadastro do parceiro. (2) Redirect **302** na `order-received` **somente se o pedido já estiver pago** — Pix/Boleto pendentes permanecem no Woo (QR/código). (3) Sem query string (`order`/`key`) no MVP. (4) Convive com #20: URL externa **ou** página WP; URL externa tem prioridade. (5) URL vazia/inválida → thank-you Woo atual. Não alterar `woocommerce_get_return_url` do gateway (Asaas continua retornando em `order-received`).
 - **Consequências:** Cartão (pago na hora) vai direto à página do parceiro; Pix/Boleto só redirecionam depois do pagamento, se o cliente voltar/atualizar a thank-you Woo. Host da URL entra em `allowed_redirect_hosts` só na hora do redirect.
+
+## D-017 — GFI Connect: plugin gateway Woo separado (saldo Gfi Hub)
+
+- **Data:** 2026-08-31
+- **Status:** Aceito (2026-08-31, issue [#21](https://github.com/esvianna/THEME-AMALABS/issues/21)); scaffold permitido; go-live após sandbox Gfi
+- **Contexto:** Aceitar saldo Gfi Hub como forma de pagamento **adicional** na loja AmaLabs e/ou checkouts WLC. Asaas (Pix/Boleto/Cartão) permanece o gateway principal. Tema não deve conter lógica de gateway (D-009). Wiki [Webhook](https://api.gfihub.com.br/wiki/38d5bd05-b0a5-4e0a-b5e2-cf2539c3310a) (28/08/2026) confirma notificação `POST` com `status: PAID`.
+- **Decisão:**
+  1. **Plugin WordPress/WooCommerce separado** (`gfi-connect-gateway`), repo [`esvianna/gfi-connect-gateway`](https://github.com/esvianna/gfi-connect-gateway), SemVer/deploy independentes — **não** embutir no `white-label-checkout` nem no tema.
+  2. **Reutilizável (multi-site / multi-projeto):** zero hardcode de AmaLabs (nome, URL, merchant, copy). Cada instalação configura o próprio merchant via Woo → Pagamentos. Um site WP = um tenant de config; não é SaaS multi-loja num único processo.
+  3. Implementar como `WC_Payment_Gateway` ativável junto de qualquer outro gateway (Asaas na AmaLabs).
+  4. Fluxo: `POST /auth` → `POST /orders` (`orderNo` = ID Woo) → QR na thank-you → webhook `PAID` + polling/cron de fallback → marca pedido pago.
+  5. Credenciais e IDs **só** em settings do gateway (options WP); nunca no browser.
+  6. Respeitar D-015/D-016 quando instalado junto do WLC: retorno em `order-received` (QR/pendente); redirect externo só após pago.
+  7. **Scaffold / skeleton** avança com defaults documentados e settings vazios; **pagamento real / go-live** só após: resposta suporte Gfi + sandbox + aceite comercial humano.
+- **Settings do gateway (Woo → Pagamentos → Gfi Connect)** — o que vira parâmetro (não hardcode):
+
+  | Campo | Por quê |
+  |-------|---------|
+  | Enabled / title / description | UX checkout (textos editáveis por loja) |
+  | Environment (sandbox \| production) | Alterna base URL da API |
+  | API base URL (opcional override) | Default das docs; override se Gfi mudar host |
+  | API username + password | Usuário dedicado de integração |
+  | Merchant ID (opcional) | Se vazio, usa `defaultMerchantId` do JWT |
+  | Currency ID | UUID ou código BRL — preenchido após confirmar com Gfi |
+  | Webhook secret (token na URL) | Path/query do REST endpoint; 1 URL por merchant no painel Gfi |
+  | Polling interval / enable cron | Fallback se webhook falhar |
+  | Debug log | Ligar/desligar logs sem PII sensível demais |
+
+  **Não** são settings (são regras de código / resposta Gfi): enum de status tratado no código (`PAID` + tolerância); schema do payload; política comercial de taxas/liquidação (fora do plugin).
+- **Alternativas rejeitadas / adiantadas:** (B) Dentro do WLC — infla o plugin e acopla Gfi a campanhas white-label. (C) No tema — rejeitado (D-009).
+- **Consequências:** Terceiro deploy; convive com Asaas e skin WLC; instalável em outros Woo sem fork; gaps da API (TTL JWT/QR, retries webhook, `currencyId` exato) entram como defaults configuráveis ou constantes documentadas quando o suporte responder.

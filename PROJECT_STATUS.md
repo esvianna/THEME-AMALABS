@@ -1,6 +1,6 @@
 # PROJECT_STATUS — AmaLabs Theme
 
-> Última atualização: 2026-08-25 (WLC v0.11.6 em prod — #22)
+> Última atualização: 2026-08-31 (#21 — wiki Webhook Gfi)
 
 ---
 
@@ -18,7 +18,7 @@ Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`b
 | [#22](https://github.com/esvianna/THEME-AMALABS/issues/22) thank-you URL | **Done** | v0.11.6; D-016; Blue Mind → bluemindsaude.com/obrigado/ |
 | #14 · #16 · #17 | Backlog | Catálogo full, e-mails, relatório |
 | #18 | Fase 2 | Gateway / From / fiscal |
-| [#21](https://github.com/esvianna/THEME-AMALABS/issues/21) GFI Connect | **Backlog** | Análise: plugin separado de pagamento (saldo Gfi Hub); não substitui Asaas |
+| [#21](https://github.com/esvianna/THEME-AMALABS/issues/21) GFI Connect | **In progress** | D-017 Aceito; v0.1.0 em prod (`ama-prod`), plugin ativo, gateway **enabled=no** |
 | #1–#3 | Ready (tema) | Fora desta sprint |
 
 **Plugin:** `white-label-checkout` **v0.11.6** em prod. URL de obrigado `https://bluemindsaude.com/obrigado/` nos parceiros Blue Mind 1/3/6 unidades (IDs 115, 143, 144). Vivants sem URL.
@@ -27,7 +27,16 @@ Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`b
 
 ---
 
-## Feito nesta sessão (2026-08-25)
+## Feito nesta sessão (2026-08-31)
+
+- [x] [#21](https://github.com/esvianna/THEME-AMALABS/issues/21): revisada [wiki Webhook Gfi](https://api.gfihub.com.br/wiki/38d5bd05-b0a5-4e0a-b5e2-cf2539c3310a) (atualizada 28/08/2026) — webhook existe; status documentado `PAID`; 1 URL/merchant; conciliação periódica recomendada
+- [x] Comentário na #21 com impacto na análise (lacunas restantes + reforço opção A plugin separado)
+- [x] ADR **D-017** **Aceito** em `DECISIONS.md` (plugin gateway separado, multi-site, settings)
+- [x] Checklist do que validar com suporte Gfi registrado na #21
+- [x] Repo [`esvianna/gfi-connect-gateway`](https://github.com/esvianna/gfi-connect-gateway) criado + scaffold **v0.1.0** (gateway, client, webhook, QR, cron)
+- [x] Deploy `ama-prod` → `wp-content/plugins/gfi-connect-gateway/` (sem `.git`); plugin **ativo**; gateway **desligado** (`enabled=no`) até credenciais
+
+## Sessão anterior (2026-08-25)
 
 - [x] Issue [#22](https://github.com/esvianna/THEME-AMALABS/issues/22) URL de obrigado externa por parceiro criada e no Project (P1 / S)
 - [x] Decisões fechadas (D-016): 302 só após pago; sem query string; convive com #20
