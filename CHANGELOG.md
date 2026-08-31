@@ -9,6 +9,7 @@ Versão do tema em `style.css` (`Version:`).
 
 ### Added
 
+- Issue [#23](https://github.com/esvianna/THEME-AMALABS/issues/23): épico + ADR **D-018** — plugin [`campaign-landings`](https://github.com/esvianna/campaign-landings) **v0.1.0** (LP campanha/parceiro, WLC opcional, tag+IDs, `/lp/{slug}/`). Deploy prod + homolog [GFI Pet](https://amalabs.com.br/lp/gfi-pet/).
 - Issue [#21](https://github.com/esvianna/THEME-AMALABS/issues/21): ADR **D-017** **Aceito** — plugin [`esvianna/gfi-connect-gateway`](https://github.com/esvianna/gfi-connect-gateway) v0.1.0 scaffold (settings, API client, webhook, QR thank-you, cron). Deploy prod (`amalabs.com.br`) ativo com gateway **desabilitado** até credenciais.
 
 ### Fixed

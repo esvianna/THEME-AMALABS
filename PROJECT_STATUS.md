@@ -1,6 +1,6 @@
 # PROJECT_STATUS — AmaLabs Theme
 
-> Última atualização: 2026-08-31 (#21 — wiki Webhook Gfi)
+> Última atualização: 2026-08-31 (#23 — campaign-landings v0.1.0 + #21)
 
 ---
 
@@ -19,16 +19,22 @@ Homologação WLC em `https://amalabs.com.br`. Parceiro teste: **Blue Mind** (`b
 | #14 · #16 · #17 | Backlog | Catálogo full, e-mails, relatório |
 | #18 | Fase 2 | Gateway / From / fiscal |
 | [#21](https://github.com/esvianna/THEME-AMALABS/issues/21) GFI Connect | **In progress** | D-017 Aceito; v0.1.0 em prod (`ama-prod`), plugin ativo, gateway **enabled=no** |
+| [#23](https://github.com/esvianna/THEME-AMALABS/issues/23) Campaign landings | **In review** | D-018 Aceito; [`campaign-landings`](https://github.com/esvianna/campaign-landings) **v0.1.0** em prod (`ama-prod`); homolog [GFI Pet](https://amalabs.com.br/lp/gfi-pet/) |
 | #1–#3 | Ready (tema) | Fora desta sprint |
 
 **Plugin:** `white-label-checkout` **v0.11.6** em prod. URL de obrigado `https://bluemindsaude.com/obrigado/` nos parceiros Blue Mind 1/3/6 unidades (IDs 115, 143, 144). Vivants sem URL.
 
-**Workspace:** `C:\Users\dudav\Documents\Projetos\AMALABS\amalabs.code-workspace`
+**Workspace:** `C:\Users\dudav\Documents\Projetos\AMALABS\amalabs.code-workspace` (tema + WLC + `gfi-connect-gateway` + `campaign-landings`)
 
 ---
 
 ## Feito nesta sessão (2026-08-31)
 
+- [x] [#23](https://github.com/esvianna/THEME-AMALABS/issues/23) épico Campaign landings + ADR **D-018** Aceito; doc `docs/architecture/CAMPAIGN-LANDINGS.md`
+- [x] Mock Figma `story_commerce_v1` (GFI Pet): https://www.figma.com/design/G7T9iOWQ77jC0CYQjPU7Od
+- [x] Repo [`esvianna/campaign-landings`](https://github.com/esvianna/campaign-landings) + scaffold **v0.1.0** (CPT, rewrite `/lp/{slug}/`, layout, catálogo tag+IDs)
+- [x] Deploy `ama-prod` → `wp-content/plugins/campaign-landings/` (sem `.git`); plugin ativo
+- [x] Landing homolog GFI Pet: https://amalabs.com.br/lp/gfi-pet/
 - [x] [#21](https://github.com/esvianna/THEME-AMALABS/issues/21): revisada [wiki Webhook Gfi](https://api.gfihub.com.br/wiki/38d5bd05-b0a5-4e0a-b5e2-cf2539c3310a) (atualizada 28/08/2026) — webhook existe; status documentado `PAID`; 1 URL/merchant; conciliação periódica recomendada
 - [x] Comentário na #21 com impacto na análise (lacunas restantes + reforço opção A plugin separado)
 - [x] ADR **D-017** **Aceito** em `DECISIONS.md` (plugin gateway separado, multi-site, settings)

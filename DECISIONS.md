@@ -158,3 +158,19 @@ Formato leve (ADR). Registrar decisões que afetam arquitetura, segurança ou fl
   **Não** são settings (são regras de código / resposta Gfi): enum de status tratado no código (`PAID` + tolerância); schema do payload; política comercial de taxas/liquidação (fora do plugin).
 - **Alternativas rejeitadas / adiantadas:** (B) Dentro do WLC — infla o plugin e acopla Gfi a campanhas white-label. (C) No tema — rejeitado (D-009).
 - **Consequências:** Terceiro deploy; convive com Asaas e skin WLC; instalável em outros Woo sem fork; gaps da API (TTL JWT/QR, retries webhook, `currencyId` exato) entram como defaults configuráveis ou constantes documentadas quando o suporte responder.
+
+## D-018 — Campaign landings: plugin separado (WLC opcional)
+
+- **Data:** 2026-08-31
+- **Status:** Aceito (épico [#23](https://github.com/esvianna/THEME-AMALABS/issues/23))
+- **Contexto:** Cliente precisa de landing pages de campanha/marketing (história, benefícios, depoimentos, grade de produtos, compra) sem navegação institucional da AmaLabs. Pode haver vínculo com parceiro WLC (ex. GFI × linha Pet) ou campanha só AmaLabs. Site institucional **não** é loja aberta; a LP é a trilha de conversão.
+- **Decisão:**
+  1. **Plugin WordPress/WooCommerce separado** `campaign-landings` (repo [`esvianna/campaign-landings`](https://github.com/esvianna/campaign-landings)) — **não** no tema (D-009) e **não** embutido no `white-label-checkout`.
+  2. CPT `cl_landing`, capability `manage_cl_landings`, URL pública `/lp/{slug}/`.
+  3. **Vínculo WLC opcional** (`_cl_partner_id` → `wlc_partner`): se preenchido e WLC ativo → handoff para checkout WLC (sessão/UTM/skin); se vazio → checkout Woo **padrão** com chrome limpo (sem menu/header institucional).
+  4. **Catálogo:** tag de produto Woo (`_cl_product_tag`) como fonte principal + override opcional `_cl_product_ids[]`. Categorias só em fase futura se necessário.
+  5. **Layouts versionados no código** (primeiro: `story_commerce_v1`); sem page builder livre no MVP.
+  6. Soft-dependency no WLC: se parceiro apontado e WLC inativo → aviso no admin; fallback checkout padrão (MVP).
+  7. Sem hardcode de marca AmaLabs no código — conteúdo/tokens via meta da landing.
+- **Alternativas rejeitadas:** (A) Estender só o WLC — landings sem parceiro não devem depender do WLC. (B) CPT no tema — viola D-009.
+- **Consequências:** Quarto deploy (tema ≠ WLC ≠ Gfi Connect ≠ landings); Kanban continua no Project Amalabs #16; complementa [#8](https://github.com/esvianna/THEME-AMALABS/issues/8) / `/parceiro/` (descoberta editorial ≠ checkout direto).

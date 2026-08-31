@@ -21,6 +21,7 @@ Legenda: `P0` crítico · `P1` importante · `P2` desejável
 | Prioridade | Item | Notas |
 |------------|------|--------|
 | P1 | **Checkout white-label por parceiro** | Épico [#8](https://github.com/esvianna/THEME-AMALABS/issues/8); Fase 1 [#9](https://github.com/esvianna/THEME-AMALABS/issues/9)–[#17](https://github.com/esvianna/THEME-AMALABS/issues/17); thank-you WP [#20](https://github.com/esvianna/THEME-AMALABS/issues/20); URL externa [#22](https://github.com/esvianna/THEME-AMALABS/issues/22); Fase 2 [#18](https://github.com/esvianna/THEME-AMALABS/issues/18) |
+| P1 | **Landing pages de campanha / parceiro** | Épico [#23](https://github.com/esvianna/THEME-AMALABS/issues/23); D-018; plugin `campaign-landings`; layout `story_commerce_v1` |
 | P2 | **GFI Connect — plugin de pagamento separado** | D-017 Aceito; repo [`gfi-connect-gateway`](https://github.com/esvianna/gfi-connect-gateway) v0.1.0; pesquisa [#21](https://github.com/esvianna/THEME-AMALABS/issues/21); go-live após sandbox Gfi |
 | P1 | Alinhar copy e seções à marca real (infocêuticos vs lab clínico) | Conteúdo + Customizer defaults |
 | P1 | Templates `page` / `single` / `404` | Evitar layout genérico frágil |
